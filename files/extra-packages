@@ -1,0 +1,33 @@
+
+atuin
+aws-cli
+brew
+btop
+delta
+difftastic
+direnv
+eza
+fd
+fish
+fzf
+gawk
+gh
+go-1.22
+grype
+helix
+lazygit
+neovim
+# for github copilot vim plugin
+nodejs-21
+# for neovim plugin support
+npm
+rclone
+ripgrep
+sed
+ssh-import-id
+starship
+tmux
+uutils
+yq
+zellij
+zoxide
