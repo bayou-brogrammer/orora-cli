@@ -4,17 +4,17 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * TUE'
+    - cron: "0 0 * * TUE"
   push:
     branches:
       - main
     paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
   workflow_dispatch:
 env:
-    IMAGE_NAME: orora-cli
-    IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
-    SOURCE_IMAGE: bluefin-cli
+  IMAGE_NAME: orora-cli
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+  SOURCE_IMAGE: bluefin-cli
 
 jobs:
   push-ghcr:
@@ -24,7 +24,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    steps: 
+    steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
           done
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
-        
+
       # Build metadata
       - name: Image Metadata
         uses: docker/metadata-action@v5
@@ -91,7 +91,7 @@ jobs:
           build-args: |
             GH_TOKEN=${{ github.token }}
           oci: false
-          
+
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
       - name: Lowercase Registry
